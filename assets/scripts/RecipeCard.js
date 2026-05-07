@@ -136,10 +136,25 @@ class RecipeCard extends HTMLElement {
 		const rating = Number.isFinite(Number(data.rating)) ? Number(data.rating) : 0;
 		const numberRatings = Number.isFinite(Number(data.numberRatings)) ? Number(data.numberRatings) : 0;
 
-		//
+		// A7
+		article.innerHTML = `
+		<img src="${data.imgSrc}" alt="${data.imgAlt}">
+		<p class="title">
+			<a href="${data.titleLnk}">${data.titleTxt}</a>
+		</p>
+		<p class="organization">${data.organization}</p>
+		<div class="rating">
+			<span>${rating}</span>
+			<img src="./assets/images/icons/${rating}-star.svg" alt="${rating} stars">
+			<span>(${numRatings})</span>
+		</div>
+		<time>${data.lengthTime}</time>
+		<p class="ingredients">${data.ingredients}</p>
+		`;
 
 	}
 }
 
 // A8. TODO - Define the Class as a customElement so that you can create
 //           'recipe-card' elements
+customElements.define("recipe-card", RecipeCard);
