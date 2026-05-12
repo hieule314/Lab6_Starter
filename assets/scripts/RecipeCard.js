@@ -94,6 +94,8 @@ class RecipeCard extends HTMLElement {
 				font-size: 12px;
 			}
 			`;
+			shadow.append(style, article);
+
 
 	}
 
@@ -134,7 +136,7 @@ class RecipeCard extends HTMLElement {
 		// A6
 		const article = this.shadowRoot.querySelector("article");
 		const rating = Number.isFinite(Number(data.rating)) ? Number(data.rating) : 0;
-		const numberRatings = Number.isFinite(Number(data.numberRatings)) ? Number(data.numberRatings) : 0;
+		const numRatings = Number.isFinite(Number(data.numRatings)) ? Number(data.numRatings) : 0;
 
 		// A7
 		article.innerHTML = `
@@ -151,7 +153,6 @@ class RecipeCard extends HTMLElement {
 		<time>${data.lengthTime}</time>
 		<p class="ingredients">${data.ingredients}</p>
 		`;
-
 	}
 }
 
